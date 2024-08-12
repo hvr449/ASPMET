@@ -23,7 +23,7 @@ The implementation involves:
 •	Missing Value Analysis: The dataset is tested for missing values to ensure completeness. The analysis confirms that the data is comprehensive, with no missing entries.
 
 
-**#Validation**
+**Validation**
 
 •	Statistical Modeling: Linear regression models are applied to validate the relationships between key variables. For instance, the relationship between investment levels and effectiveness, and between communication quality and training satisfaction, is tested.
 
