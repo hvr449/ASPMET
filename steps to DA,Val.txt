@@ -1,0 +1,37 @@
+#7 Loading the libraries
+#16 Loading the data set
+#22 Creating a mapping of text responses to numeric values
+#28 Creating a mapping of text responses to numeric values
+#35 Creating a mapping of text responses to numeric values
+#42 Creating a mapping of text responses to numeric values
+#49 Creating a mapping of text responses to numeric values
+#56 Creating a mapping of text responses to numeric values
+#63 Creating a mapping of text responses to numeric values
+#70 Creating a mapping of text responses to numeric values
+#76 Creating a mapping of text responses to numeric values
+#82 Creating a mapping of text responses to numeric values
+#89 Creating a mapping of text responses to numeric values
+#96 Creating a mapping of text responses to numeric values
+#103 Creating a mapping of text responses to numeric values
+#110 Rename the columns with shorter names
+#201 Apply mappings to the transform of the columns
+#205 Displaying the first few rows of the data frame to verify
+#207 Displaying the column names
+#210 Displaying the summary statistics
+#220 Histogram of Distribution of Effectiveness
+#224 Box plot of Training Satisfaction by Investment Level
+#229 Bar plot of Incorporation of Sustainable Practices
+#233 Box plot of Review Frequency vs. Effectiveness
+#237  Bar plot of Improvement Areas
+#241 Density plot of Effectiveness
+#245 Violin plot of Training Satisfaction by Communication
+#249 Convert Review of Frequency to a factor with levels
+#251 Line plot of the Training Satisfaction over Review Frequency
+#256 Pie chart of the Primary Motivation
+#259 Plotting the pie chart
+#265 Pair plot to show the relationships between multiple variables
+#271  Linear Regression
+#274 Predictions from the model
+#278 Calculate residuals
+#280 Plotting residuals
+#282 Summary of Predicted Effectiveness
