@@ -301,7 +301,7 @@ summary_table <- clean_data %>%
   )
 summary_table_df <- as.data.frame(summary_table)
 
-kable(summary_table_df, 
+table(summary_table_df, 
       caption = "Summary of Predicted Effectiveness",
       col.names = c("Mean Effectiveness", "Median Effectiveness", "Standard Deviation", "Minimum Effectiveness", "Maximum Effectiveness"),
       format = "markdown")
