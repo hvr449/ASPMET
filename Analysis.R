@@ -5,6 +5,9 @@ install.packages("dplyr")
 install.packages("GGally")
 
 
+
+
+# Loading the libraries
 library(tidyverse)
 library(lubridate)
 library(ggplot2)
@@ -12,19 +15,28 @@ library(dplyr)
 library(GGally)
 library(knitr)
 
+#Loading the data set
 
 data <- read.csv("D:/ADOPTING SUSTAINABLE PRACTICES IN MANAGING EMERGING TECHNOLOGIES.csv")
 data
 
+
 colnames(data)
+
 str(data)
 
+
+# Creating a mapping of text responses to numeric values
 How.effective.is.your.organization.s.current.sustainability.program.in.managing.emerging.technologies. <- c(
   "Very effective" = 4,
   "Somewhat effective" = 3,
   "Not very effective" = 2,
   "Not effective at all" = 1
 )
+
+
+
+# Creating a mapping of text responses to numeric values
 Which.area.of.sustainability.do.you.think.needs.the.most.improvement.in.your.organization. <- c(
   "Energy efficiency" = 1,
   "Waste management" = 2,
@@ -32,6 +44,8 @@ Which.area.of.sustainability.do.you.think.needs.the.most.improvement.in.your.org
   "Water conservation" = 4
 )
 
+
+# Creating a mapping of text responses to numeric values
 How.well.does.your.organization.incorporate.sustainable.practices.in.the.lifecycle.management.of.emerging.technologies.<- c(
   "Very well" = 4,
   "Moderately well" = 3,
@@ -39,6 +53,8 @@ How.well.does.your.organization.incorporate.sustainable.practices.in.the.lifecyc
   "Not at all" = 1
 )
 
+
+# Creating a mapping of text responses to numeric values
 What.is.the.biggest.challenge.in.implementing.sustainable.practices.in.emerging.technologies.at.your.organization. <- c(
   "Lack of expertise" = 1,
   "Cost" = 2,
@@ -46,6 +62,10 @@ What.is.the.biggest.challenge.in.implementing.sustainable.practices.in.emerging.
   "Resistance to change" = 4
 )
 
+
+
+
+# Creating a mapping of text responses to numeric values
 How.often.does.your.organization.review.and.update.its.sustainability.practices.concerning.emerging.technologies. <- c(
   "Never" = 1,
   "Every few years" = 2,
@@ -53,6 +73,8 @@ How.often.does.your.organization.review.and.update.its.sustainability.practices.
   "Annually" = 4
 )
 
+
+# Creating a mapping of text responses to numeric values
 To.what.extent.does.your.organization.invest.in.sustainable.technologies. <- c(
   "Not at all" = 1,
   "Minimally" = 2,
@@ -60,6 +82,8 @@ To.what.extent.does.your.organization.invest.in.sustainable.technologies. <- c(
   "Heavily" = 4
 )
 
+
+# Creating a mapping of text responses to numeric values
 How.satisfied.are.you.with.the.training.provided.on.sustainable.practices.related.to.emerging.technologies. <- c(
   "Very unsatisfied" = 1,
   "Unsatisfied" = 2,
@@ -67,18 +91,25 @@ How.satisfied.are.you.with.the.training.provided.on.sustainable.practices.relate
   "Very satisfied" = 4
 )
 
+
+
+# Creating a mapping of text responses to numeric values
 How.well.do.you.think.your.organizations.sustainability.efforts.are.communicated.to.employees. <- c(
   "Not communicated at all" = 1,
   "Well" = 2,
   "Very well" = 3
 )
 
+
+# Creating a mapping of text responses to numeric values
 How.well.do.you.think.your.organizations.sustainability.efforts.are.communicated.to.employees. <- c(
   "Not communicated at all" = 1,
   "Well" = 2,
   "Very well" = 3
 )
 
+
+# Creating a mapping of text responses to numeric values
 Which.sustainable.technology.has.had.the.most.positive.impact.on.your.organization. <- c(
   "Energy-efficient IT infrastructure" = 1,
   "Renewable energy systems" = 2,
@@ -86,6 +117,8 @@ Which.sustainable.technology.has.had.the.most.positive.impact.on.your.organizati
   "Eco-friendly product design" = 4
 )
 
+
+# Creating a mapping of text responses to numeric values
 How.effective.are.your.organization.s.policies.in.reducing.electronic.waste. <- c(
   "Not effective at all" = 1,
   "Not very effective" = 2,
@@ -93,6 +126,8 @@ How.effective.are.your.organization.s.policies.in.reducing.electronic.waste. <- 
   "Very effective" = 4
 )
 
+
+# Creating a mapping of text responses to numeric values
 How.important.is.sustainability.in.your.organization.s.strategy.for.adopting.new.technologies. <- c(
   "Not important at all" = 1,
   "Not very important" = 2,
@@ -100,6 +135,7 @@ How.important.is.sustainability.in.your.organization.s.strategy.for.adopting.new
   "Very important" = 4
 )
 
+# Creating a mapping of text responses to numeric values
 What.is.your.organization.s.primary.motivation.for.adopting.sustainable.practices.in.managing.emerging.technologies. <- c(
   "Cost savings" = 1,
   "Regulatory compliance" = 2,
@@ -107,20 +143,23 @@ What.is.your.organization.s.primary.motivation.for.adopting.sustainable.practice
   "Competitive advantage" = 4
 )
 
+
+
+# Rename the columns with shorter names
 colnames(data) <- c(
-  "Timestamp", 
-  "Effectiveness", 
-  "Improvement_Area", 
-  "Incorporation",
-  "Biggest_Challenge", 
-  "Review_Frequency",  
-  "Investment_Level", 
-  "Training_Satisfaction",
-  "Communication",  
-  "Positive_Impact", 
-  "Electronic_Waste_Policies", 
-  "Importance_Strategy", 
-  "Primary_Motivation" 
+  "Timestamp",  # 1
+  "Effectiveness",  # 2
+  "Improvement_Area",  # 3
+  "Incorporation",  # 4
+  "Biggest_Challenge",  # 5
+  "Review_Frequency",  # 6
+  "Investment_Level",  # 7
+  "Training_Satisfaction",  # 8
+  "Communication",  # 9
+  "Positive_Impact",  # 10
+  "Electronic_Waste_Policies",  # 11
+  "Importance_Strategy",  # 12
+  "Primary_Motivation"  # 13
 )
 print(colnames(data))
 
@@ -198,92 +237,122 @@ mapping_list <- list(
   )
 )
 
+
+# Apply mappings to the transform of the columns
 for (column in names(mapping_list)) {
   data[[column]] <- mapping_list[[column]][data[[column]]]
 }
 
+# Displaying the first few rows of the data frame to verify
 head(data)
 
+# Displaying the column names
 print(colnames(data))
 
 
+# Displaying the summary statistics
 summary(data)
+
 
 missing_values <- sapply(data, function(x) sum(is.na(x)))
 print(missing_values)
+
+
 
 clean_data <- na.omit(data)
 
 
 print(clean_data)
 
+
+# Histogram of Distribution of Effectiveness
+
 ggplot(clean_data, aes(x = Effectiveness)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
   labs(title = "Distribution of Effectiveness", x = "Effectiveness", y = "Frequency")
 
+# Box plot of Training Satisfaction by Investment Level
 ggplot(clean_data, aes(x = factor(Investment_Level, levels = 1:4, labels = c("Not at all", "Minimally", "Moderately", "Heavily")), y = Training_Satisfaction)) +
   geom_boxplot(fill = "green", color = "blue") +
   labs(title = "Training Satisfaction by Investment Level", x = "Investment Level", y = "Training Satisfaction")
 
-
+# Bar plot of Incorporation of Sustainable Practices
 ggplot(clean_data, aes(x = factor(Incorporation, levels = 1:4, labels = c("Very well", "Moderately well", "Poorly", "Not at all")))) +
   geom_bar(fill = "purple", color = "black") +
   labs(title = "Incorporation of Sustainable Practices", x = "Incorporation", y = "Count")
 
+# Box plot of Review Frequency vs. Effectiveness
 ggplot(clean_data, aes(x = factor(Review_Frequency, levels = 1:4, labels = c("Never", "Every few years", "Bi-annually", "Annually")), y = Effectiveness)) +
   geom_boxplot(fill = "orange", color = "black") +
   labs(title = "Effectiveness by Review Frequency", x = "Review Frequency", y = "Effectiveness")
 
+#  Bar plot of Improvement Areas
 ggplot(clean_data, aes(x = factor(Improvement_Area, levels = 1:4, labels = c("Energy efficiency", "Waste management", "Carbon footprint reduction", "Water conservation")))) +
   geom_bar(fill = "green", color = "black") +
   labs(title = "Improvement Areas", x = "Improvement Area", y = "Count")
 
+# Density plot of Effectiveness
 ggplot(clean_data, aes(x = Effectiveness)) +
   geom_density(fill = "blue", alpha = 0.5) +
   labs(title = "Density Plot of Effectiveness", x = "Effectiveness", y = "Density")
 
+# Violin plot of Training Satisfaction by Communication
 ggplot(clean_data, aes(x = factor(Communication, levels = 1:3, labels = c("Not communicated at all", "Well", "Very well")), y = Training_Satisfaction)) +
   geom_violin(fill = "lightgreen", color = "black") +
   labs(title = "Training Satisfaction by Communication", x = "Communication", y = "Training Satisfaction")
 
+
+# Convert Review of Frequency to a factor with levels
 clean_data$Review_Frequency <- factor(clean_data$Review_Frequency, levels = 1:4, labels = c("Never", "Every few years", "Bi-annually", "Annually"))
 
+# Line plot of the Training Satisfaction over Review Frequency
 ggplot(clean_data, aes(x = Review_Frequency, y = Training_Satisfaction, group = 1)) +
   geom_line() +
   geom_point(size = 3) +
   labs(title = "Training Satisfaction Over Review Frequency", x = "Review Frequency", y = "Training Satisfaction")
 
+# Pie chart of the Primary Motivation
 primary_motivation_counts <- clean_data %>%
   count(Primary_Motivation)
 
+# Plotting the pie chart
 ggplot(primary_motivation_counts, aes(x = "", y = n, fill = factor(Primary_Motivation, levels = 1:4, labels = c("Cost savings", "Regulatory compliance", "Corporate social responsibility", "Competitive advantage")))) +
   geom_bar(width = 1, stat = "identity") +
   coord_polar(theta = "y") +
   labs(title = "Primary Motivation for Adopting Sustainable Practices", fill = "Primary Motivation") +
   theme(axis.text.x = element_blank())
 
+
+
+# Pair plot to show the relationships between multiple variables
 ggpairs(clean_data, columns = c("Effectiveness", "Investment_Level", "Training_Satisfaction", "Communication"),
         upper = list(continuous = "points"),
         lower = list(continuous = "smooth"),
         diag = list(continuous = "barDiag"))
 
 
+#  Linear Regression
 model1 <- lm(Effectiveness ~ Investment_Level, data = clean_data)
 summary(model1)
 
+# Multiple Linear Regression
 model2 <- lm(Effectiveness ~ Investment_Level + Training_Satisfaction + Communication, data = clean_data)
 summary(model2)
 
 
+# Predictions from the model
 predictions <- predict(model2, clean_data)
 
+# Calculate residuals
 residuals <- clean_data$Effectiveness - predictions
 
+# Plotting residuals
 ggplot(data = clean_data, aes(x = predictions, y = residuals)) +
   geom_point() +
   geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
   labs(title = "Residuals vs Fitted Values", x = "Fitted Values", y = "Residuals")
 
+#Summary of Predicted Effectiveness
 
 predictions <- predict(model2, clean_data)
 
@@ -301,7 +370,7 @@ summary_table <- clean_data %>%
   )
 summary_table_df <- as.data.frame(summary_table)
 
-table(summary_table_df, 
+kable(summary_table_df, 
       caption = "Summary of Predicted Effectiveness",
       col.names = c("Mean Effectiveness", "Median Effectiveness", "Standard Deviation", "Minimum Effectiveness", "Maximum Effectiveness"),
       format = "markdown")
